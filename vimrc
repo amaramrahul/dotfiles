@@ -1,0 +1,310 @@
+
+"========== Use Vim Settings ==========
+
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+
+" ========== Plugins ========== 
+
+" pathogen
+source /stuff/vim/plugins/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect('bundle/{}', '/stuff/vim/plugins/{}')
+syntax on
+filetype plugin indent on
+
+" netrw
+let g:netrw_liststyle = 3           " 0=thin 1=long 2=wide 3=tree
+
+" ctrlp
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_working_path_mode = ''
+set wildignore+=*.pyc
+
+" easymotion
+"let g:EasyMotion_leader_key = '<Leader>'
+
+" NERDTree plugin
+"let g:NERDTreeHijackNetrw=0
+"map <C-n> :NERDTreeToggle<CR>
+" open a NERDTree automatically when vim starts up if no files were specified
+"autocmd vimenter * if !argc() | NERDTree | endif
+" close vim if the only window left open is a NERDTree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" When changing into a project directory with C, tell VIM to change to that same directory
+let g:NERDTreeChDirMode=2
+
+" yankring
+let g:yankring_history_dir = '~/.local/share/vim'
+
+" Gundo
+"nnoremap <F5> :GundoToggle<CR>
+
+" tagbar
+"nmap <F8> :TagbarToggle<CR>
+
+" Powerline
+" enable when Powerline_cache_file or Powerline_cache_dir can take paths
+" relative to home directory
+let g:Powerline_cache_enabled = 0
+
+" ConqueShell
+let g:ConqueTerm_CloseOnEnd = 1
+
+" Supertab
+" See https://github.com/ervandew/supertab/blob/master/doc/supertab.txt
+let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabClosePreviewOnPopupClose = 1
+" below two mappings work only in gvim
+"let g:SuperTabMappingForward = '<c-space>'
+"let g:SuperTabMappingBackward = '<s-c-space>'
+" Internally nul is converted to c-space in console vim
+"let g:SuperTabMappingForward = '<nul>'
+"let g:SuperTabMappingBackward = '<s-nul>'
+"let g:SuperTabMappingTabLiteral = '<tab>'
+
+" pyclewn
+let g:pyclewn_args = "--window=bottom"
+
+" python-mode
+let g:pymode_lint_checker = "pylint"
+let g:pymode_lint_ignore = "W"
+let g:pymode_lint_maxheight = 6
+let g:pymode_lint_maxheight = 15
+let g:pymode_folding = 0
+" Rename to avoid conflict with jedi
+let g:pymode_run_key = '<F11>'
+" prefer python-mode documentation
+let g:pymode_doc = 1
+" set pymode_rope = 1 if you want to use any rope feature such as refactoring
+" also create .ropeproject in project root folder if rope is enabled
+let g:pymode_rope = 0
+" leave pymode_rope_vim_completion = 0 as we will always use jedi for
+" auto-completion
+let g:pymode_rope_vim_completion = 0
+
+" jedi-vim
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+
+" pmd
+let g:Pmd_Cmd = "/opt/pmd/bin/run.sh"
+let g:Pmd_Rulesets = "./prj/style/pmd/vizury_java_ruleset.xml -version 1.7 -language java"
+
+" minibufexpl (replaced by bufexplorer)
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1 
+
+" flake8 (replaced with python-mode)
+"autocmd BufWritePost *.py call Flake8()
+
+" ropevim (replaced with python-mode)
+"source /usr/local/share/vim/plugin/ropevim.vim
+"imap <buffer><Tab> <M-/>
+
+" pylint (replaced with python-mode)
+"autocmd FileType python compiler pylint
+"let g:pylint_show_rate = 0
+"let g:pylint_conventions = 0
+"let g:pylint_warning = 0
+"let g:pylint_cwindow = 0
+
+
+"========== General configuration ==========
+
+set nobackup
+set hidden
+set hlsearch
+"set mouse=a
+"set number
+"colorscheme terminal
+"set nuw=4
+"set smartcase
+"set smartindent
+
+" Useful but already provided as part of vim-sensible plugin.
+"set backspace=indent,eol,start
+"set history=50		" keep 50 lines of command line history
+"set ruler		" show the cursor position all the time
+"set showcmd		" display incomplete commands
+"set incsearch		" do incremental searching
+"set laststatus=2
+
+" colorscheme for vimdiff
+if &diff
+    "colorscheme desert
+    highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white
+    highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black
+    highlight DiffText term=reverse cterm=bold ctermbg=gray ctermfg=black
+    highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black
+endif
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+" Increase vim register size
+set viminfo='10,<1000,s10,h
+
+" Tell vim to remember certain things when we exit
+"  '10 : marks will be remembered for up to 10 previously edited files
+"  "100 : will save up to 100 lines for each register
+"  :20 : up to 20 lines of command-line history will be remembered
+"  % : saves and restores the buffer list
+"  n... : where to save the viminfo files
+"set viminfo='10,\"100,:20,%,n~/.viminfo
+
+" vmap <C-C> "*y<CR>
+" vmap <C-X> "*d<CR>
+" map <C-V> "*p<CR>
+" nmap <C-V> "*p<CR>
+" imap <C-V> <ESC>"*pi<CR>
+
+" automatically focus the window on new nerd tree tabs
+autocmd BufNew * wincmd l
+
+"========== Gvim ==========
+
+" Remove menu bar
+"set guioptions-=m
+
+" Remove toolbar
+set guioptions-=T
+
+
+"========== External Command ==========
+
+" Taken from http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
+function! s:ExecuteInShell(command)
+  let command = join(map(split(a:command), 'expand(v:val)'))
+  let winnr = bufwinnr('^' . command . '$')
+  silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
+  setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
+  echo 'Execute ' . command . '...'
+  silent! execute 'silent %!'. command
+  silent! execute 'resize ' . line('$')
+  silent! redraw
+  silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+  silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+  echo 'Shell command ' . command . ' executed.'
+endfunction
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+
+
+"========== Buffers, Windows & Tabs ==========
+
+" Easier window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Tips from http://vim.wikia.com/wiki/Easier_buffer_switching 
+function! BufSel(pattern)
+  let bufcount = bufnr("$")
+  let currbufnr = 1
+  let nummatches = 0
+  let firstmatchingbufnr = 0
+  while currbufnr <= bufcount
+    if(bufexists(currbufnr))
+      let currbufname = bufname(currbufnr)
+      if(match(currbufname, a:pattern) > -1)
+        echo currbufnr . ": ". bufname(currbufnr)
+        let nummatches += 1
+        let firstmatchingbufnr = currbufnr
+      endif
+    endif
+    let currbufnr = currbufnr + 1
+  endwhile
+  if(nummatches == 1)
+    execute ":buffer ". firstmatchingbufnr
+  elseif(nummatches > 1)
+    let desiredbufnr = input("Enter buffer number: ")
+    if(strlen(desiredbufnr) != 0)
+      execute ":buffer ". desiredbufnr
+    endif
+  else
+    echo "No matching buffers"
+  endif
+endfunction
+
+"Bind the BufSel() function to a user-command
+command! -nargs=1 Bs :call BufSel("<args>")
+nnoremap <F5> :buffers<CR>:edit<Space>#
+
+
+"========== Programming ==========
+
+" Autocompletion
+" See http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+"set completeopt=longest,menuone,preview
+set completeopt=longest,menuone
+
+" See http://superuser.com/questions/305945/gvim-omni-completion-preview-window-doesnt-go-away
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Preview window on the bottom of vim
+" See http://vim-settings.googlecode.com/svn-history/r25/trunk/.vimrc
+"function! PreviewDown()
+"   if !&previewwindow
+"       silent! wincmd P
+"   endif
+"   if &previewwindow
+"       silent! wincmd J
+"       silent! wincmd p
+"   endif
+"endf 
+"au BufWinEnter * call PreviewDown()
+" Simpler
+"set splitbelow
+
+" Python
+autocmd FileType python setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=80
+"autocmd FileType python TagbarOpen
+" Use more advanced types of auto-completion such as rope / jedi
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+" C/C++
+autocmd FileType c setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+autocmd FileType cpp setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+
+" PHP
+autocmd FileType php setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=80
+
+" Shell
+autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+
+" Java
+autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
+autocmd FileType java let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+
+" HTML
+autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+
+" Javascript
+autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+
+" XML
+autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+
+" Markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
