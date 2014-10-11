@@ -45,11 +45,13 @@ Plugin 'klen/python-mode'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'pmd.vim'
 Plugin 'TaskList.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
-" c/c++ pluings using tags. Prefer clang to ctags.
-"Plugin 'OmniCppComplete'
+" c/c++ plugins.
 "Plugin 'craigemery/vim-autotag'
-"Plugin 'majutsushi/tagbar'
+"Plugin 'OmniCppComplete'
 "Plugin 'WolfgangMehner/vim-plugins'
 
 
@@ -150,6 +152,14 @@ let g:jedi#popup_on_dot = 0
 let g:Pmd_Cmd = "/opt/pmd/bin/run.sh"
 let g:Pmd_Rulesets = "./prj/style/pmd/vizury_java_ruleset.xml -version 1.7 -language java"
 
+" ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 " minibufexpl (replaced by bufexplorer)
 "let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplMapWindowNavArrows = 1
@@ -169,7 +179,6 @@ let g:Pmd_Rulesets = "./prj/style/pmd/vizury_java_ruleset.xml -version 1.7 -lang
 "let g:pylint_conventions = 0
 "let g:pylint_warning = 0
 "let g:pylint_cwindow = 0
-
 
 "========== General configuration ==========
 
@@ -351,7 +360,12 @@ autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Java
 autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
+
+" Eclim (See http://eclim.org/cheatsheet.html)
 autocmd FileType java let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 
 " HTML
 autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent

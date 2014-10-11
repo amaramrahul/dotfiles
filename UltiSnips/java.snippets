@@ -1,0 +1,37 @@
+snippet clv "class for Vizury" b
+/*
+ * Copyright (c) `date +%Y` Vizury Interactive Solutions Pvt. Ltd.
+ */
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Description of the class ending with a period.
+ *
+ * @author Rahul Amaram <rahul.amaram@vizury.com>
+ */
+public class ${1:`!p snip.rv = snip.basename or "Unknown"`} {
+    private static final Logger logger = LoggerFactory.getLogger(
+            $1.class);
+
+    public $1() {
+    }
+
+    /**
+      * Main method.
+      *
+      * @param args command line arguments
+      */
+    public static void main(String[] args) {
+    }
+}
+endsnippet
+
+snippet clm "class with main method" b
+public class ${1:`!p snip.rv = snip.basename or "Unknown"`} {
+    public static void main(String[] args) {
+    }
+}
+endsnippet
+
