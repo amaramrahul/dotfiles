@@ -379,3 +379,6 @@ autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 " Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
+
+" Vagrantfile
+autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2 autoindent
