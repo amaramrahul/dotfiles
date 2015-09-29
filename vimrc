@@ -180,6 +180,17 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:pylint_warning = 0
 "let g:pylint_cwindow = 0
 
+" Eclim (See http://eclim.org/cheatsheet.html)
+autocmd FileType java let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>mc :Mvn compile<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>mp :Mvn package<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>c :!javac %<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>e :!java $(basename % \| sed 's/.java$//')<cr>
+
 "========== General configuration ==========
 
 set nobackup
@@ -246,6 +257,9 @@ set viminfo='10,<1000,s10,h
 
 " automatically focus the window on new nerd tree tabs
 autocmd BufNew * wincmd l
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 "========== Gvim ==========
 
@@ -360,12 +374,6 @@ autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Java
 autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
-
-" Eclim (See http://eclim.org/cheatsheet.html)
-autocmd FileType java let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
-nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
-nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
-nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 
 " HTML
 autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent

@@ -35,3 +35,28 @@ public class ${1:`!p snip.rv = snip.basename or "Unknown"`} {
 }
 endsnippet
 
+snippet fori "for loop with variable i" b
+for (int i = 0; i < n$0; i++) {
+}
+endsnippet
+
+snippet forj "for loop with variable j" b
+for (int j = 0; j < n$0; j++) {
+}
+endsnippet
+
+snippet fork "for loop with variable k" b
+for (int k = 0; k < n$0; k++) {
+}
+endsnippet
+
+snippet parr "array print loop" b
+for (int i = 0; i < arr.length; i++) {
+    System.out.print(arr[i]);
+    if (i == arr.length-1) {
+    	System.out.print("\n");
+    } else {
+        System.out.print(", ");
+    }
+}
+endsnippet
