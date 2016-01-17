@@ -181,15 +181,15 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:pylint_cwindow = 0
 
 " Eclim (See http://eclim.org/cheatsheet.html)
-autocmd FileType java let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
-nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
-nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
-nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>mc :Mvn compile<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>mp :Mvn package<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>c :!javac %<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>e :!java $(basename % \| sed 's/.java$//')<cr>
+"autocmd FileType java let g:SuperTabContextDefaultCompletionType = '<c-x><c-u>'
+"nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+"nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+"nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+"autocmd FileType java nnoremap <silent> <buffer> <leader>mc :Mvn compile<cr>
+"autocmd FileType java nnoremap <silent> <buffer> <leader>mp :Mvn package<cr>
+"autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
+"autocmd FileType java nnoremap <silent> <buffer> <leader>c :!javac %<cr>
+"autocmd FileType java nnoremap <silent> <buffer> <leader>e :!java $(basename % \| sed 's/.java$//')<cr>
 
 "========== General configuration ==========
 
@@ -387,3 +387,6 @@ autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 " Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
+
+" Text files
+autocmd BufRead,BufNewFile *.txt set spell paste
