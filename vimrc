@@ -390,3 +390,6 @@ nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink
 
 " Text files
 autocmd BufRead,BufNewFile *.txt set spell paste
+
+" Vagrantfile
+autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2 autoindent
