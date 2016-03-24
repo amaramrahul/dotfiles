@@ -102,6 +102,22 @@ let g:yankring_history_dir = '~/.local/share/vim'
 
 " tagbar
 "nmap <F8> :TagbarToggle<CR>
+" See https://github.com/majutsushi/tagbar/wiki#markdown
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '/usr/local/bin/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+command MarkdownTags :set filetype=markdown | TagbarOpen
 
 " Powerline
 " enable when Powerline_cache_file or Powerline_cache_dir can take paths
@@ -190,6 +206,7 @@ let g:UltiSnipsEditSplit="vertical"
 "autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
 "autocmd FileType java nnoremap <silent> <buffer> <leader>c :!javac %<cr>
 "autocmd FileType java nnoremap <silent> <buffer> <leader>e :!java $(basename % \| sed 's/.java$//')<cr>
+
 
 "========== General configuration ==========
 
