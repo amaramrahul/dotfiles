@@ -79,6 +79,8 @@ let g:netrw_liststyle = 3           " 0=thin 1=long 2=wide 3=tree
 " ctrlp
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 100
 set wildignore+=*.pyc
 
 " easymotion
@@ -92,7 +94,7 @@ set wildignore+=*.pyc
 " close vim if the only window left open is a NERDTree
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " When changing into a project directory with C, tell VIM to change to that same directory
-let g:NERDTreeChDirMode=2
+"let g:NERDTreeChDirMode=2
 
 " yankring
 let g:yankring_history_dir = '~/.local/share/vim'
@@ -213,8 +215,8 @@ let g:UltiSnipsEditSplit="vertical"
 set nobackup
 set hidden
 set hlsearch
-"set mouse=a
 "set number
+"set mouse=a
 "colorscheme terminal
 "set nuw=4
 "set smartcase
@@ -277,6 +279,10 @@ autocmd BufNew * wincmd l
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+" Bash-like autocomplete
+set wildmode=longest,list
+
 
 "========== Gvim ==========
 
