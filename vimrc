@@ -41,13 +41,14 @@ Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'deb.vim'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'pmd.vim'
 Plugin 'TaskList.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'tomlion/vim-solidity'
 
 " c/c++ plugins.
 "Plugin 'craigemery/vim-autotag'
@@ -416,3 +417,6 @@ autocmd BufRead,BufNewFile *.txt set spell paste
 
 " Vagrantfile
 autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+
+" Fix for 'crontab -e' not working in OS X
+autocmd filetype crontab setlocal nobackup nowritebackup
