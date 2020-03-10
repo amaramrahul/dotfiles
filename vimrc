@@ -43,18 +43,21 @@ Plugin 'deb.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'python-mode/python-mode'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'pmd.vim'
 Plugin 'TaskList.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tomlion/vim-solidity'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
-" c/c++ plugins.
+" c/c++ plugins
 "Plugin 'craigemery/vim-autotag'
 "Plugin 'OmniCppComplete'
 "Plugin 'WolfgangMehner/vim-plugins'
 
+" java plugins
+"Plugin 'pmd.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -167,10 +170,6 @@ let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 
-" pmd
-let g:Pmd_Cmd = "/opt/pmd/bin/run.sh"
-let g:Pmd_Rulesets = "./prj/style/pmd/vizury_java_ruleset.xml -version 1.7 -language java"
-
 " ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -179,25 +178,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" minibufexpl (replaced by bufexplorer)
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1 
-
-" flake8 (replaced with python-mode)
-"autocmd BufWritePost *.py call Flake8()
-
-" ropevim (replaced with python-mode)
-"source /usr/local/share/vim/plugin/ropevim.vim
-"imap <buffer><Tab> <M-/>
-
-" pylint (replaced with python-mode)
-"autocmd FileType python compiler pylint
-"let g:pylint_show_rate = 0
-"let g:pylint_conventions = 0
-"let g:pylint_warning = 0
-"let g:pylint_cwindow = 0
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
 " Eclim (See http://eclim.org/cheatsheet.html)
 "autocmd FileType java let g:SuperTabContextDefaultCompletionType = '<c-x><c-u>'
@@ -209,6 +191,10 @@ let g:UltiSnipsEditSplit="vertical"
 "autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
 "autocmd FileType java nnoremap <silent> <buffer> <leader>c :!javac %<cr>
 "autocmd FileType java nnoremap <silent> <buffer> <leader>e :!java $(basename % \| sed 's/.java$//')<cr>
+
+" pmd
+"let g:Pmd_Cmd = "/opt/pmd/bin/run.sh"
+"let g:Pmd_Rulesets = "./prj/style/pmd/vizury_java_ruleset.xml -version 1.7 -language java"
 
 
 "========== General configuration ==========
@@ -409,7 +395,6 @@ autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
 nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
 
 " Text files
