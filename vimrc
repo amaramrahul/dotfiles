@@ -386,17 +386,17 @@ autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Javascript
-if env == "khoros"
-  autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
-else
+if !exists("env")
   autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+elseif env == "khoros"
+  autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
 endif
 
 " XML
-if env == "khoros"
-  autocmd FileType xml setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
-else
+if !exists("env")
   autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+elseif env == "khoros"
+  autocmd FileType xml setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
 endif
 
 " Markdown
@@ -412,10 +412,10 @@ autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2
 "autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Java
-if env == "khoros"
-  autocmd FileType java setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
-else
+if !exists("env")
   autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
+elseif env == "khoros"
+  autocmd FileType java setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
 endif
 
 " autocmd is not supported in IntelliJ. Hence inferring filetype using
