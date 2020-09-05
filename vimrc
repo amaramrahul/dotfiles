@@ -405,3 +405,6 @@ autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2
 
 " Fix for 'crontab -e' not working in OS X
 autocmd filetype crontab setlocal nobackup nowritebackup
+
+" Used for coding contests where square brackets are used for arrays
+vnoremap <leader>rbc :s/\[/{/g<cr>:s/\]/}/g<cr>
