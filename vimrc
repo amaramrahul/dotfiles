@@ -407,4 +407,7 @@ autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Used for coding contests where square brackets are used for arrays
-vnoremap <leader>rbc :s/\[/{/g<cr>:s/\]/}/g<cr>
+" See https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
+" and https://vi.stackexchange.com/questions/20622/how-do-i-map-multiple-replace-commands-in-visual-mode
+" and https://stackoverflow.com/questions/24782903/vim-mapping-for-visual-line-mode
+xnoremap <leader>rbc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>
