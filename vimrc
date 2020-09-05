@@ -383,16 +383,28 @@ autocmd FileType php setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap c
 autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Java
-autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
+if env == "khoros"
+  autocmd FileType java setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
+else
+  autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
+endif
 
 " HTML
 autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Javascript
-autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+if env == "khoros"
+  autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
+else
+  autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+endif
 
 " XML
-autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+if env == "khoros"
+  autocmd FileType xml setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
+else
+  autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+endif
 
 " Markdown
 nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
