@@ -2,4 +2,6 @@ source ~/.vimrc
 
 " \%V (which is used in vimrc for <leader>rsc xnoremap mapping) doesn't seem
 " to work in IntelliJ as of IdeaVim 0.59. Hence redefining the mapping.
-xnoremap <leader>rsc :s/\[/{/g<cr>:'<,'>s/{\]/[]/g<cr>:'<,'>s/\]/}/g<cr>:'<,'>s/\[}/[]/g<cr>:noh<cr>
+if expand('%:e') == "java"
+  xnoremap <leader>rsc :s/\[/{/g<cr>:'<,'>s/{\]/[]/g<cr>:'<,'>s/\]/}/g<cr>:'<,'>s/\[}/[]/g<cr>:noh<cr>
+endif

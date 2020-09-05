@@ -382,13 +382,6 @@ autocmd FileType php setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap c
 " Shell
 autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
-" Java
-if env == "khoros"
-  autocmd FileType java setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
-else
-  autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
-endif
-
 " HTML
 autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
@@ -416,15 +409,29 @@ autocmd BufRead,BufNewFile *.txt set spell paste
 autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Fix for 'crontab -e' not working in OS X
-autocmd filetype crontab setlocal nobackup nowritebackup
+"autocmd filetype crontab setlocal nobackup nowritebackup
 
-" Used for coding contests where square brackets are used for arrays
-" and we want to replace them with curly brackets
-" See https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
-" and https://vi.stackexchange.com/questions/20622/how-do-i-map-multiple-replace-commands-in-visual-mode
-" and https://stackoverflow.com/questions/24782903/vim-mapping-for-visual-line-mode
-" Note: <bar> doesn't seem to work in IntelliJ. Hence using <cr> for executing
-" multiple commands. Not sure what are the pros/cons of using <bar> vs <cr>
-" though.
-nnoremap <leader>rsc :s/\[/{/g<cr>:s/{\]/[]/g<cr>:s/\]/}/g<cr>:s/\[}/[]/g<cr>:noh<cr>
-xnoremap <leader>rsc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>:noh<cr>
+" Java
+if env == "khoros"
+  autocmd FileType java setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
+else
+  autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
+endif
+
+" autocmd is not supported in IntelliJ. Hence inferring filetype using
+" file extension.
+if expand('%:e') == "java"
+  noremap <leader>cc :s/^\(\s*\)/\1\/\/<cr>:noh<cr>
+  noremap <leader>cu :s/^\(\s*\)\/\//\1/<cr>:noh<cr>
+
+  " Below mappigns are useful in coding contests where square brackets are
+  " used for arrays and we want to replace them with curly brackets.
+  " See https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
+  " and https://vi.stackexchange.com/questions/20622/how-do-i-map-multiple-replace-commands-in-visual-mode
+  " and https://stackoverflow.com/questions/24782903/vim-mapping-for-visual-line-mode
+  " Note that <bar> doesn't seem to work in IntelliJ. Hence using <cr> for executing
+  " multiple commands. Not sure what are the pros/cons of using <bar> vs <cr>
+  " though.
+  nnoremap <leader>rsc :s/\[/{/g<cr>:s/{\]/[]/g<cr>:s/\]/}/g<cr>:s/\[}/[]/g<cr>:noh<cr>
+  noremap <leader>rsc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>:noh<cr>
+endif
