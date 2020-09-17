@@ -433,5 +433,5 @@ if expand('%:e') == "java"
   " multiple commands. Not sure what are the pros/cons of using <bar> vs <cr>
   " though.
   nnoremap <leader>rsc :s/\[/{/g<cr>:s/{\]/[]/g<cr>:s/\]/}/g<cr>:s/\[}/[]/g<cr>:noh<cr>
-  noremap <leader>rsc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>:noh<cr>
+  xnoremap <leader>rsc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>:noh<cr>
 endif
