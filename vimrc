@@ -180,6 +180,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
 
 " Eclim (See http://eclim.org/cheatsheet.html)
 "autocmd FileType java let g:SuperTabContextDefaultCompletionType = '<c-x><c-u>'
@@ -400,7 +401,8 @@ elseif env == "khoros"
 endif
 
 " Markdown
-nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
+autocmd FileType markdown nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
+autocmd FileType markdown nmap <leader>toc :Toch<cr>:q<cr>:Tocv<cr>
 
 " Text files
 autocmd BufRead,BufNewFile *.txt set spell paste
