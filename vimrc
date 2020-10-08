@@ -389,14 +389,14 @@ autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 " Javascript
 if !exists("env")
   autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
-elseif env == "khoros"
+elseif env == "work"
   autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
 endif
 
 " XML
 if !exists("env")
   autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
-elseif env == "khoros"
+elseif env == "work"
   autocmd FileType xml setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
 endif
 
@@ -416,7 +416,7 @@ autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2
 " Java
 if !exists("env")
   autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
-elseif env == "khoros"
+elseif env == "work"
   autocmd FileType java setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
 endif
 
