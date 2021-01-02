@@ -403,6 +403,7 @@ endif
 " Markdown
 autocmd FileType markdown nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
 autocmd FileType markdown nmap <leader>toc :Toch<cr>:q<cr>:Tocv<cr>
+autocmd FileType markdown setlocal shiftwidth=4 expandtab tabstop=4
 
 " Text files
 autocmd BufRead,BufNewFile *.txt set spell paste
