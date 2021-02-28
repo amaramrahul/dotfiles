@@ -3,14 +3,12 @@ dotfiles
 
 Get dotfiles
 ------------
-
 ```
 $ git clone https://github.com/amaramrahul/dotfiles.git
 ```
 
 Setup vim (with plugin dependencies)
 ------------------------------------
-
 ```
 $ apt-get install exuberant-ctags # dependency for tagbar plugin
 
@@ -21,7 +19,6 @@ $ vim +PluginInstall +qall
 
 Configure UltiSnips snippets
 ----------------------------
-
 ```
 $ ln -s path-to-dotfiles-directory/UltiSnips ~/.vim/UltiSnips
 ```

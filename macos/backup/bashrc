@@ -1,0 +1,105 @@
+# brew info coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# sed
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+# find
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+# tar
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+# Manpages of below GNU commands to be accessed using 'g' prefix.
+alias grep='/usr/local/bin/ggrep'
+alias ed='/usr/local/bin/ged'
+alias findutils='/usr/local/bin/gfindutils'
+alias indent='/usr/local/bin/indent'
+alias watch='/usr/local/bin/watch'
+
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export PATH=$JAVA_HOME/bin:$PATH
+
+# mysql
+export PATH="/usr/local/mysql/bin:$PATH"
+
+# tf and vault
+if [ -d "$HOME/projects/terraform/bin" ]; then
+  PATH="$HOME/projects/terraform/bin:$PATH"
+fi
+export VAULT_ADDR=https://vault.lcloud.com:8200
+
+# homebrew disable auto update
+#export HOMEBREW_NO_AUTO_UPDATE=1
+
+# See https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+# disabled for iTerm2 Shell Integration to work
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
+
+# History
+HISTSIZE=1000000
+
+# set editor to vim
+export EDITOR='vim'
+
+# Other aliases
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ls='ls --color=auto'
+alias rgrep='/usr/local/bin/ggrep -R --exclude-dir=".svn" --exclude-dir=".git"'
+alias vim='/stuff/scripts/vimx.sh'
+alias lia-workdir='cd ~/projects/lia/dev/lia/apps/main/res/lia/'
+alias rc='env RC_OPTS="-Drc.init=${HOME}/rc/rc.init -Drc.log=${HOME}/rc/rc.log" /opt/lithium-rc-2.4.4/bin/rc'
+alias rc-local='env RC_OPTS="-Drc.init=${HOME}/rc/rc-local.init -Drc.log=${HOME}/rc/rc-local.log" /opt/lithium-rc-2.4.4/bin/rc'
+alias git-tree='git log --graph --oneline'
+alias keepass2='xhost 127.0.0.1; docker run -p 127.0.0.1:19455:19455 -v /Users/rahul.amaram/keepass-config:/root/.config/KeePass -v /stuff/keepass:/root/keepass -e DISPLAY=host.docker.internal:0 amaramrahul/keepass2'
+alias libreoffice='xhost 127.0.0.1; docker run -p 127.0.0.1:19455:19455 -v /stuff:/stuff -e DISPLAY=host.docker.internal:0 amaramrahul/libreoffice'
+
+function commkey {
+  curl -s "https://repo.sj.lithium.com/config/value?name=$1&key=$2" | jq -r ".value"
+}
+
+# usage: ec2-set-region ap-southeast-1
+function ec2-set-region
+{
+  if [ $# == 0 ]; then
+    echo "Usage: ec2-set-region region"
+    echo "Examples:"
+    echo "    ec2-set-region ap-southeast-1"
+    return
+  fi
+  export EC2_REGION=$1
+  export EC2_URL=https://ec2.${EC2_REGION}.amazonaws.com
+}
+
+function rtb-stack-info {
+  args=${@:-"--region us-east-1"}
+  aws $args cloudformation describe-stacks | jq '.Stacks | map({ (.StackName) : (.Outputs | map({(.OutputKey): (.OutputValue)}) | add) })'
+}
+
+function rtb-asg-instances {
+  args=${@:-"--region us-east-1"}
+  aws $args ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:aws:autoscaling:groupName,Values=rtb*" | jq '.Reservations | map(.Instances) | add | map(.Tags + [{"Key": "PrivateIpAddress", "Value": .PrivateIpAddress}]) | map(map({(.Key): (.Value)}) | add) | group_by(.["aws:autoscaling:groupName"]) | map({(.[0]["aws:autoscaling:groupName"]): (map(.PrivateIpAddress) | join(","))}) | add'
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function jumphost() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: jumphost <configName>. Example: jumphost lithosphere.prod"
+        return
+    fi
+    hostname=$(curl -s "https://repo.sj.lithium.com/config/value?key=rc.jumphost&name=${1}" | jq -r '.value')
+    if [[ "$hostname" == "null" ]]; then
+        echo "No compatible jump host found for specified configName."
+        return
+    fi
+    ssh -A $hostname
+}
