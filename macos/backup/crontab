@@ -1,8 +1,8 @@
-#MAILTO=rahul.amaram@lithium.com
+#MAILTO=rahulamaram@fb.com
 SHELL=/bin/bash
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 
-0 13 * * * /bin/test -s /var/mail/rahul.amaram && /usr/bin/osascript -e 'display notification "Check /var/mail/rahul.amaram" with title "You got mail!"'
-0,30 * * * * /usr/local/bin/borg create /backup/borg::'{hostname}-{now:\%s}' /Users/rahul.amaram/misc /Users/rahul.amaram/rc
-15,45 * * * * /usr/local/bin/borg create /backup/projects::'{hostname}-{now:\%s}' /Users/rahul.amaram/projects/lia /Users/rahul.amaram/projects/search-service -e '*/target/classes' -e '*/target/generated-sources' -e '*/target/generated-test-sources' -e '*/target/maven-archiver' -e '*/target/maven-status' -e '*/target/*.jar' -e '*/dev/lia/apps/main/res/lia/serv' -e '*/target/apidocs' -e '*/target/javadoc-bundle-options' -e '*/dependency-reduced-pom.xml'
+#0 13 * * * /bin/test -s /var/mail/rahul.amaram && /usr/bin/osascript -e 'display notification "Check /var/mail/rahul.amaram" with title "You got mail!"'
+#0,30 * * * * /usr/local/bin/borg create /backup/borg::'{hostname}-{now:\%s}' /Users/rahul.amaram/misc /Users/rahul.amaram/rc
+#15,45 * * * * /usr/local/bin/borg create /backup/projects::'{hostname}-{now:\%s}' /Users/rahul.amaram/projects/lia /Users/rahul.amaram/projects/search-service -e '*/target/classes' -e '*/target/generated-sources' -e '*/target/generated-test-sources' -e '*/target/maven-archiver' -e '*/target/maven-status' -e '*/target/*.jar' -e '*/dev/lia/apps/main/res/lia/serv' -e '*/target/apidocs' -e '*/target/javadoc-bundle-options' -e '*/dependency-reduced-pom.xml'
 #37 8 * * * /usr/bin/osascript -e 'tell application "System Events" to display dialog "********** LOCKDOWN IN 5 MINUTES **********\n\nUnlock only if you have any tasks that have to be completed today" buttons {"OK"} with icon caution' > /dev/null 2>&1

@@ -1,4 +1,3 @@
-
 System Preferences Optimizations
 --------------------------------
 
@@ -21,24 +20,25 @@ Mouse
 Karabiner Configuration
 -----------------------
 
-(Following options are selected)
-
-Change Tab Key
-	Swap Command+Tab and Control+Tab
-For PC Users
-	Use PC Style Home/End #2
-	##### Use PC Style PageUp/PageDown
-
-App-specific remappings: https://github.com/tekezo/Karabiner-Elements/issues/137 (supported by Karabiner via private.xml)
-Terminal Home and End Keys Passthrough: https://github.com/tekezo/Files/blob/master/Karabiner/private.terminal_pass_through_home_end/private.xml
+Switch Control to Command and Command to Control in System Preferences for Karabiner DriverKit VirtualHD Keyboard
+Copy dotfiles/macos/backup/karabiner.json to ~/.config/karabiner/karabiner.json
 
 
 VMWare Configuration
 ---------------------
 
+Configuration:
+
 Key Mappings
 	Cmd: Ctrl
 	Cmd+Alt+Delete: Ctrl+Alt+Delete
+
+Issues:
+
+If usb 3.0 is not working (device getting identified as uas), add the below config in .vmx file:
+usb.generic.keepStreamsEnabled = "FALSE"
+
+This idea has been taking from http://pubs.vmware.com/Release_Notes/en/fusion/8/fusion-80-release-notes.html#knownissues
 
 
 Barrier Configuration
@@ -52,22 +52,13 @@ Shortcuts
 Hide Window		: Ctrl + H
 Hide other windows	: Ctrl + Alt + H
 Screenshot		: Ctrl + Shift + 4
-Lock Screen		: Command + Shift + Eject
+Lock Screen		: Ctrl + Command + Q
 F11			: Show Desktop
 Alt + Space (modified)	: Show Spotlight
 
 Go to System Preferences -> Keyboard -> Shortcuts
 1. Disable all conflicting shortcuts (these are mostly those where command and ctrl are used)
 2. Custom App Shortcuts can be set for menu actions (for ex. you can set MacVim cut, copy, paste overrides)
-
-
-VMWare Issues
--------------
-
-If usb 3.0 is not working (device getting identified as uas), add the below config in .vmx file:
-usb.generic.keepStreamsEnabled = "FALSE"
-
-This idea has been taking from http://pubs.vmware.com/Release_Notes/en/fusion/8/fusion-80-release-notes.html#knownissues
 
 
 Apps
@@ -103,6 +94,7 @@ Tips
     - osascript -e "display dialog \"hello\"" - Doesn't work from cron
     - osascript -e "tell application (path to frontmost application) to display dialog \"hello\"" - Focus returns to the foremost application when cancelled but when other apps are opened dialog goes in background
     - osascript -e "tell application \"System Events\" to display dialog \"hello\"" - Dialog always in foreground but when cancelled focus doesn't return to the foremost application
+
 
 Thunderbird
 -----------
