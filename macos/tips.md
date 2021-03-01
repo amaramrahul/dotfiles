@@ -17,6 +17,20 @@ Karabiner Configuration
 
 Copy dotfiles/macos/backup/karabiner.json to ~/.config/karabiner/karabiner.json
 
+Additional mappings for iTerm2 with above configuration (set in Preferences -> Keys -> Key Bindings):
+Ctrl+Shift+C -> Copy
+Ctrl+Shift+V -> Paste
+Ctrl+Shift+T -> New tab
+Ctrl+Page_down -> Next Tab
+Ctrl+Page_up -> Previous Tab
+Fn+left_arrow (this will get interpreted as Command+left_arrow) -> Send Hex Code "0x01"
+Fn+right_arrow (this will get interpreted as Command+right_arrow) -> Send Hex Code "0x05"
+Ctrl+left_arrow (this will get interpreted as Alt+left_arrow) -> Send Escape Sequence "b"
+Ctrl+right_arrow (this will get interpreted as Alt+right_arrow) -> Send Escape Sequence "f"
+
+You will also have to delete the shortcuts for Option+left_arrow and Option+right_arrow in Preferences -> Profiles -> Keys to avoid conflicts.
+
+
 Notes:
 1. If upgrading MacOS, ensure that karabiner is supported in the latest version.
 2. key_code in karabiner.json should be a specific key (for ex. left_control, right_command). However, modifiers can be generic (for ex: control, command)
