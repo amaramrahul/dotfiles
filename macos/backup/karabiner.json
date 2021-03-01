@@ -77,6 +77,23 @@
                                 "type": "basic"
                             },
                             {
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "lazy": true
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
@@ -133,6 +150,23 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "right_shift",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift",
+                                        "lazy": true
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -160,7 +194,7 @@
                                             "command"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift"
                                         ]
                                     }
                                 },
@@ -195,13 +229,50 @@
                                             "control"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
                                         "key_code": "tab",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+		    {
+                        "description": "Control+Space to Command+Space except Terminal",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com\\.googlecode\\.iterm2",
+                                            "com\\.apple\\.Terminal",
+                                            "com\\.jetbrains\\.*",
+                                            "org\\.vim\\.MacVim",
+                                            "org\\.macosforge\\.xquartz\\.X11",
+                                            "org\\.virtualbox\\.app\\.VirtualBoxVM"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
                                         "modifiers": [
                                             "command"
                                         ]
