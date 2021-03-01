@@ -308,14 +308,14 @@
                         ]
                     },
                     {
-                        "description": "Fix grave accent",
+                        "description": "Fix same application multiple window switching",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "grave_accent_and_tilde",
                                     "modifiers": {
                                         "mandatory": [
-                                            "control"
+                                            "option"
                                         ]
                                     }
                                 },
