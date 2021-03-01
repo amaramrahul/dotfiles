@@ -7,11 +7,6 @@ General
 Keyboard
 	Keyboard
 		Use all F1, F2, etc. keys as standard function keys: Checked
-	Modifier Keys
-		Caps Lock: Caps Lock
-		Control: Command
-		Option: Option
-		Command: Control
 
 Mouse
 	Scroll direction: Unchecked
@@ -20,8 +15,9 @@ Mouse
 Karabiner Configuration
 -----------------------
 
-Switch Control to Command and Command to Control in System Preferences for Karabiner DriverKit VirtualHD Keyboard
 Copy dotfiles/macos/backup/karabiner.json to ~/.config/karabiner/karabiner.json
+
+Note: If upgrading MacOS, ensure that karabiner is supported in the latest version.
 
 
 VMWare Configuration
