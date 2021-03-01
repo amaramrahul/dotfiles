@@ -22,6 +22,17 @@ Notes:
 2. key_code in karabiner.json should be a specific key (for ex. left_control, right_command). However, modifiers can be generic (for ex: control, command)
 
 
+Secure Shell
+------------
+
+In case you want to run commands that you do not want to be logged, you can just spawn a new shell as:
+```
+/usr/bin/env HISTFILE= /bin/bash
+```
+
+Additionally, if you are using iTerm2 as the default terminal application, then you can configure the in-built MacOS Terminal Application to always run this command when launched. This way you can be sure that any command that you run in Terminal application will not get stored in bash history.
+
+
 VMWare Configuration
 ---------------------
 
