@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Swap Command and Ctrl except Terminal",
+                        "description": "Swap Command and Ctrl except Terminal, X11, VM",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -171,7 +171,7 @@
                         ]
                     },
                     {
-                        "description": "Swap Command+Tab to Control+Tab except Terminal",
+                        "description": "Swap Command+Tab and Control+Tab except Terminal, X11, VM",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -246,7 +246,7 @@
                         ]
                     },
                     {
-                        "description": "Control+Space to Command+Space except Terminal",
+                        "description": "Control+Space to Command+Space except Terminal,X11,VM",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -283,9 +283,17 @@
                         ]
                     },
                     {
-                        "description": "Option+Tab to Command+Tab",
+                        "description": "Option+Tab to Command+Tab except VM",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "org\\.virtualbox\\.app\\.VirtualBoxVM"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "tab",
                                     "modifiers": {
@@ -308,9 +316,18 @@
                         ]
                     },
                     {
-                        "description": "Option+tilde to Command+tilde for same application multiple windows switching",
+                        "description": "Option+tilde to Command+tilde for same application multiple windows switching except X11,VM",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "org\\.macosforge\\.xquartz\\.X11",
+                                            "org\\.virtualbox\\.app\\.VirtualBoxVM"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "grave_accent_and_tilde",
                                     "modifiers": {
@@ -335,9 +352,18 @@
                         ]
                     },
                     {
-                        "description": "Change home/end for non-apple keyoards and fn+left_arrow/right_arrow for Apple keyboards to Command+Left/Right",
+                        "description": "Change home/end for non-apple keyoards and fn+left_arrow/right_arrow for Apple keyboards to Command+Left/Right except X11,VM",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "org\\.macosforge\\.xquartz\\.X11",
+                                            "org\\.virtualbox\\.app\\.VirtualBoxVM"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "home"
                                 },
