@@ -17,7 +17,9 @@ Karabiner Configuration
 
 Copy dotfiles/macos/backup/karabiner.json to ~/.config/karabiner/karabiner.json
 
-Note: If upgrading MacOS, ensure that karabiner is supported in the latest version.
+Notes:
+1. If upgrading MacOS, ensure that karabiner is supported in the latest version.
+2. key_code in karabiner.json should be a specific key (for ex. left_control, right_command). However, modifiers can be generic (for ex: control, command)
 
 
 VMWare Configuration
