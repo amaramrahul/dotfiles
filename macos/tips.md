@@ -30,7 +30,6 @@ Ctrl+right_arrow (this will get interpreted as Alt+right_arrow) -> Send Escape S
 
 You will also have to delete the shortcuts for Option+left_arrow and Option+right_arrow in Preferences -> Profiles -> Keys to avoid conflicts.
 
-
 Notes:
 1. If upgrading MacOS, ensure that karabiner is supported in the latest version.
 2. key_code in karabiner.json should be a specific key (for ex. left_control, right_command). However, modifiers can be generic (for ex: control, command)
@@ -47,26 +46,16 @@ In case you want to run commands that you do not want to be logged, you can just
 Additionally, if you are using iTerm2 as the default terminal application, then you can configure the in-built MacOS Terminal Application to always run this command when launched. This way you can be sure that any command that you run in Terminal application will not get stored in bash history.
 
 
-VMWare Configuration
----------------------
+Need for version-based backup
+-----------------------------
 
-Configuration:
+Think of a use-case where you take notes of a half-an-hour meeting and then come out and accidentally delete it. If you only have hourly or daily backups, then there is good chance that this information is lost for good. We can reduce the frequency of our backups to 5 mins but then the number of backups created would be huge, irrespective of whether change is there or not. Hence it is suggested to have version-based backups, which backups only if there is change.
 
-Key Mappings
-	Cmd: Ctrl
-	Cmd+Alt+Delete: Ctrl+Alt+Delete
+Here is the suggested way of organizing data:
 
-Issues:
-
-If usb 3.0 is not working (device getting identified as uas), add the below config in .vmx file:
-usb.generic.keepStreamsEnabled = "FALSE"
-
-This idea has been taking from http://pubs.vmware.com/Release_Notes/en/fusion/8/fusion-80-release-notes.html#knownissues
-
-
-Barrier Configuration
----------------------
-For meta, send Ctrl
+Projects in git repos
+Personal files in Cloud with version history (synced to local system)
+Hourly Borg based backup of home directory to /backup/
 
 
 Shortcuts
@@ -117,6 +106,28 @@ Tips
     - osascript -e "display dialog \"hello\"" - Doesn't work from cron
     - osascript -e "tell application (path to frontmost application) to display dialog \"hello\"" - Focus returns to the foremost application when cancelled but when other apps are opened dialog goes in background
     - osascript -e "tell application \"System Events\" to display dialog \"hello\"" - Dialog always in foreground but when cancelled focus doesn't return to the foremost application
+
+
+VMWare Configuration
+---------------------
+
+Configuration:
+
+Key Mappings
+	Cmd: Ctrl
+	Cmd+Alt+Delete: Ctrl+Alt+Delete
+
+Issues:
+
+If usb 3.0 is not working (device getting identified as uas), add the below config in .vmx file:
+usb.generic.keepStreamsEnabled = "FALSE"
+
+This idea has been taking from http://pubs.vmware.com/Release_Notes/en/fusion/8/fusion-80-release-notes.html#knownissues
+
+
+Barrier Configuration
+---------------------
+For meta, send Ctrl
 
 
 Thunderbird
