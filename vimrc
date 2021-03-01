@@ -45,7 +45,9 @@ Plugin 'python-mode/python-mode'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'TaskList.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'SirVer/ultisnips'
+if has('python3')
+  Plugin 'SirVer/ultisnips'
+endif
 Plugin 'honza/vim-snippets'
 Plugin 'tomlion/vim-solidity'
 Plugin 'godlygeek/tabular'
