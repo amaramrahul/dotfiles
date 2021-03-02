@@ -403,7 +403,11 @@ elseif env == "work"
 endif
 
 " Markdown
-autocmd FileType markdown nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
+if filereadable("/usr/local/bin/redcarpet")
+  autocmd FileType markdown nmap <leader>md :%!/usr/local/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
+else
+  autocmd FileType markdown nmap <leader>md :%!/usr/bin/redcarpet --parse-no_intra_emphasis --parse-autolink --render-hard_wrap --parse-fenced_code_blocks<cr><cr>
+endif
 autocmd FileType markdown nmap <leader>toc :Toch<cr>:q<cr>:Tocv<cr>
 autocmd FileType markdown setlocal shiftwidth=4 expandtab tabstop=4
 
