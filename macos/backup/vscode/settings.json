@@ -1,0 +1,19 @@
+{
+    "editor.suggestSelection": "first",
+    "window.zoomLevel": 0,
+    "interactive-smartlog.pull": "arc pull",
+    "interactive-smartlog.fetch": "jf get",
+    "workbench.colorTheme": "Default Light+",
+    "vim.vimrc.enable": true,
+    "vim.visualstar": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["u"],
+            "commands": ["undo"]
+        },
+        {
+            "before": ["<C-r>"],
+            "commands": ["redo"]
+        }
+    ],
+}

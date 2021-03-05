@@ -20,3 +20,11 @@ if [ -f ~/Library/LaunchAgents/lockOnInactivity.plist ]; then
 fi
 
 crontab -l > "$backup_dir"/crontab
+
+# vscode
+if [ -f ~/Library/Application\ Support/VS\ Code\ @\ FB/User/settings.json ]; then
+  cp -a ~/Library/Application\ Support/VS\ Code\ @\ FB/User/settings.json "$backup_dir/vscode"
+fi
+if [ -f ~/Library/Application\ Support/VS\ Code\ @\ FB/User/keybindings.json ]; then
+  cp -a ~/Library/Application\ Support/VS\ Code\ @\ FB/User/keybindings.json "$backup_dir/vscode"
+fi
