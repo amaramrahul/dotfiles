@@ -16,4 +16,6 @@
             "commands": ["redo"]
         }
     ],
+    "fb.doctor.kerberos-keychain": true,
+    "hg.jumpToNextConflictOnSave": "Jump On Save And Open ISL When Done",
 }
