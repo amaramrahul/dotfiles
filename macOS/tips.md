@@ -35,6 +35,16 @@ Notes:
 2. key_code in karabiner.json should be a specific key (for ex. left_control, right_command). However, modifiers can be generic (for ex: control, command)
 
 
+VS Code
+-------
+
+Use the https://marketplace.visualstudio.com/items?itemName=zpeterg.intellij-idea-keybindings-mac-to-pc extension to serve two purposes:
+1. Use IntelliJ shortcuts
+2. Switch Cmd with Ctrl so that the IntelliJ shortcuts are those of Windows/Linux
+
+Additionally, retore settings.json and keybindings.json from backup.
+
+
 Secure Shell
 ------------
 
@@ -55,7 +65,7 @@ Here is the suggested way of organizing data:
 
 Projects in git repos
 Personal files in Cloud with version history (synced to local system)
-Hourly Borg based backup of home directory to /backup/
+Hourly Borg based backup of home directory to /backup/ or another cloud service
 
 
 Shortcuts
