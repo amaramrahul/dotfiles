@@ -83,5 +83,124 @@
         "key": "cmd+f12",
         "command": "-workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus"
+    },
+    {
+        "key": "alt+f7",
+        "command": "references-view.find",
+        "when": "editorHasReferenceProvider"
+    },
+    {
+        "key": "cmd+f7",
+        "command": "-references-view.find",
+        "when": "editorHasReferenceProvider"
+    },
+    {
+        "key": "alt+escape",
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    {
+        "key": "shift+escape",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "alt+1",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "cmd+1",
+        "command": "-workbench.view.explorer",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+0",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "cmd+0",
+        "command": "-workbench.action.focusSideBar"
+    },
+    {
+        "key": "alt+0",
+        "command": "workbench.actions.view.problems"
+    },
+    {
+        "key": "cmd+0",
+        "command": "-workbench.actions.view.problems"
+    },
+    {
+        "key": "alt+3",
+        "command": "workbench.view.search",
+        "when": "!searchViewletVisible"
+    },
+    {
+        "key": "cmd+3",
+        "command": "-workbench.view.search",
+        "when": "!searchViewletVisible"
+    },
+    {
+        "key": "shift+alt+f9",
+        "command": "workbench.view.debug"
+    },
+    {
+        "key": "cmd+5",
+        "command": "-workbench.view.debug",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+9",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "cmd+9",
+        "command": "-workbench.view.scm",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+enter",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+enter",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "editor.action.formatSelection",
+        "when": "editorHasDocumentFormattingProvider && editorHasSelection && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+cmd+l",
+        "command": "-editor.action.formatSelection",
+        "when": "editorHasDocumentFormattingProvider && editorHasSelection && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+f10",
+        "command": "workbench.action.tasks.runTask"
+    },
+    {
+        "key": "shift+cmd+f10",
+        "command": "-workbench.action.tasks.runTask"
+    },
+    {
+        "key": "shift+cmd+f9",
+        "command": "-workbench.view.debug"
+    },
+    {
+        "key": "ctrl+shift+alt+n",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+shift+cmd+n",
+        "command": "-workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "workbench.action.toggleFullScreen"
+    },
+    {
+        "key": "ctrl+cmd+f",
+        "command": "-workbench.action.toggleFullScreen"
     }
 ]
