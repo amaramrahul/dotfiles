@@ -202,5 +202,28 @@
     {
         "key": "ctrl+cmd+f",
         "command": "-workbench.action.toggleFullScreen"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "actions.find",
+        "when": "!editorTextFocus || !vim.active || !vim.use<C-f> || inDebugRepl || vim.mode == 'Insert'"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-actions.find"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "editor.action.startFindReplaceAction",
+        "when": "!editorTextFocus || !vim.active || !vim.use<C-r> || inDebugRepl"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-editor.action.goToDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
     }
 ]
