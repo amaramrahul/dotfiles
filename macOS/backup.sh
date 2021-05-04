@@ -3,8 +3,12 @@ set -eu
 
 backup_dir=$(dirname "$0")/backup
 
+if [ -f ~/.zshrc ]; then
+  cp -a ~/.zshrc "$backup_dir"/zshrc
+fi
+
 if [ -f ~/.bashrc ]; then
-  cp -a ~/.bashrc "$backup_dir"
+  cp -a ~/.bashrc "$backup_dir"/bashrc
 fi
 
 if [ -f ~/.config/karabiner/karabiner.json ]; then

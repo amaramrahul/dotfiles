@@ -1,20 +1,8 @@
-# Aliases
+setopt histignorespace
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias git-tree='git log --graph --oneline'
-alias ssh='autossh -M 0'
-
-# set editor to vim
-export EDITOR='vim'
-
-# History
-#HISTSIZE=1000000
-
-# Copied from $PATH in zsh
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/facebook/bin:/opt/facebook/bin/biggrep:/opt/facebook/ops/scripts/chef:/opt/homebrew/bin:/usr/local/munki:/opt/facebook/hg/bin:/opt/android_sdk/emulator:/opt/android_sdk/tools:/opt/android_sdk/tools/bin:/opt/android_sdk/platform-tools:/opt/android_sdk/emulator:/opt/android_sdk/tools:/opt/android_sdk/tools/bin:/opt/android_sdk/platform-tools"
-
-# Copied from .zshrc
 
 # added by setup_fb4a.sh
 export ANDROID_SDK=/opt/android_sdk
