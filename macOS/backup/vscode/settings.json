@@ -23,4 +23,9 @@
     "fb.doctor.kerberos-keychain": true,
     "hg.jumpToNextConflictOnSave": "Jump On Save And Open ISL When Done",
     "interactive-smartlog.autoRunMergeDrivers": false,
+    "[cpp]": {
+        "editor.defaultFormatter": "nuclide.cpp"
+    },
+    "interactive-smartlog.right-drawer-width": 526,
+    "interactive-smartlog.bottom-drawer-height": 500,
 }
