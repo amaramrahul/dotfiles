@@ -21,6 +21,8 @@ Apps
 * [Evoluent](https://evoluent.com/support/download/): Evoluent vertical mouse manager
 * [Browser Fairy 2](https://apps.apple.com/us/app/browser-fairy/id1499080593): Decide which browser to open links in based on rules.
 * [QR Jounral](https://apps.apple.com/us/app/qr-journal/id483820530)
+* [Rectangle](https://rectangleapp.com/): Move and resize windows in macOS using keyboard shortcuts or snap areas
+* [BetterSnapTool](https://www.folivora.ai/bettersnaptool/):  Easy window resize & organize (similar to Magnet or Rectangle, but provides option for user-customizable areas)
 
 Tips
 * Any web app can be run as desktop app using Google Chrome through More tools -> Create Shortcut... -> Open in new window. For PWA apps (such as https://notepad.js.org/, https://music.youtube.com/), the preferred way is to install it using the "Install <App>..." option. Other software which provide similar options are flotato (buggy), webcatalog (free version limited to 2 apps), unite (yet to try), fluid, nativefier.
@@ -31,7 +33,6 @@ Tips
     - osascript -e "display dialog \"hello\"" - Doesn't work from cron
     - osascript -e "tell application (path to frontmost application) to display dialog \"hello\"" - Focus returns to the foremost application when cancelled but when other apps are opened dialog goes in background
     - osascript -e "tell application \"System Events\" to display dialog \"hello\"" - Dialog always in foreground but when cancelled focus doesn't return to the foremost application
-* For fixing ‘Bluetooth Not Available’ problem, see https://www.howtoturnitoffandonagain.com/2016/03/01/how-to-fix-bluetooth-not-available-mac-os-x-problem/
 * To get the list of allowed  system / kernel extensions, run the command: sudo sqlite3 /var/db/SystemPolicyConfiguration/KextPolicy "select * from kext_policy" (ref: https://grahamgilbert.com/blog/2017/09/11/enabling-kernel-extensions-in-high-sierra/)
 
 
