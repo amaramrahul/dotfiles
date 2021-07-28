@@ -21,8 +21,7 @@ Apps
 * [Evoluent](https://evoluent.com/support/download/): Evoluent vertical mouse manager
 * [Browser Fairy 2](https://apps.apple.com/us/app/browser-fairy/id1499080593): Decide which browser to open links in based on rules.
 * [QR Jounral](https://apps.apple.com/us/app/qr-journal/id483820530)
-* [Rectangle](https://rectangleapp.com/): Move and resize windows in macOS using keyboard shortcuts or snap areas
-* [BetterSnapTool](https://www.folivora.ai/bettersnaptool/):  Easy window resize & organize (similar to Magnet or Rectangle, but provides option for user-customizable areas)
+* [Moom](https://manytricks.com): Window Snapping + Preserve Window layout (software providing similar features: Rectangle, BetterSnapTool, Stay, Display Maid)
 
 Tips
 * Any web app can be run as desktop app using Google Chrome through More tools -> Create Shortcut... -> Open in new window. For PWA apps (such as https://notepad.js.org/, https://music.youtube.com/), the preferred way is to install it using the "Install <App>..." option. Other software which provide similar options are flotato (buggy), webcatalog (free version limited to 2 apps), unite (yet to try), fluid, nativefier.
