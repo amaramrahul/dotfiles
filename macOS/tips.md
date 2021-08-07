@@ -33,6 +33,7 @@ Tips
     - osascript -e "tell application (path to frontmost application) to display dialog \"hello\"" - Focus returns to the foremost application when cancelled but when other apps are opened dialog goes in background
     - osascript -e "tell application \"System Events\" to display dialog \"hello\"" - Dialog always in foreground but when cancelled focus doesn't return to the foremost application
 * To get the list of allowed  system / kernel extensions, run the command: sudo sqlite3 /var/db/SystemPolicyConfiguration/KextPolicy "select * from kext_policy" (ref: https://grahamgilbert.com/blog/2017/09/11/enabling-kernel-extensions-in-high-sierra/)
+* Reduce pdf size: https://apple.stackexchange.com/questions/297417/how-to-decrease-pdf-size-without-losing-quality
 
 
 System Preferences Optimizations
