@@ -88,7 +88,7 @@ Go to System Preferences -> Keyboard -> Shortcuts
 2. Custom App Shortcuts can be set for menu actions (for ex. you can set MacVim cut, copy, paste overrides)
 
 
-VS Code
+VSCode
 -------
 
 Use the https://marketplace.visualstudio.com/items?itemName=zpeterg.intellij-idea-keybindings-mac-to-pc extension to serve two purposes:
@@ -96,6 +96,10 @@ Use the https://marketplace.visualstudio.com/items?itemName=zpeterg.intellij-ide
 2. Switch Cmd with Ctrl so that the IntelliJ shortcuts are those of Windows/Linux
 
 Additionally, retore settings.json and keybindings.json from backup.
+
+Some other useful extensions:
+* Vim
+* Bookmarks
 
 
 Secure Shell
