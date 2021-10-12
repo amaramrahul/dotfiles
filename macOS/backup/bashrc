@@ -8,5 +8,8 @@ alias ssh='autossh -M 0'
 # set editor to vim
 export EDITOR='vim'
 
+# set PATH
+export PATH=/usr/local/bin:$PATH
+
 # History
 #HISTSIZE=1000000

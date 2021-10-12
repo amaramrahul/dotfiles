@@ -1,9 +1,8 @@
 {
     "editor.suggestSelection": "first",
-    "window.zoomLevel": 0,
     "interactive-smartlog.pull": "arc pull",
     "interactive-smartlog.fetch": "jf get",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Quiet Light",
     "vim.vimrc.enable": true,
     "vim.visualstar": true,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -22,10 +21,11 @@
     ],
     "fb.doctor.kerberos-keychain": true,
     "hg.jumpToNextConflictOnSave": "Jump On Save And Open ISL When Done",
-    "interactive-smartlog.autoRunMergeDrivers": false,
+    "interactive-smartlog.autoRunMergeDrivers": true,
     "[cpp]": {
         "editor.defaultFormatter": "nuclide.cpp"
     },
-    "interactive-smartlog.right-drawer-width": 526,
+    "interactive-smartlog.right-drawer-width": 334,
     "interactive-smartlog.bottom-drawer-height": 500,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
 }

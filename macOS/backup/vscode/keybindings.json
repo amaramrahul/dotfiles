@@ -257,5 +257,15 @@
     {
         "key": "cmd+a",
         "command": "-editor.action.selectAll"
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "bookmarks.toggle",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+k",
+        "command": "-bookmarks.toggle",
+        "when": "editorTextFocus"
     }
 ]

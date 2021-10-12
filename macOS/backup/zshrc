@@ -32,3 +32,9 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Hom
 
 #[ -r /Users/rahulamaram/fbsource/xplat/js/scripts/js1/completion.sh ] && \
 #  . /Users/rahulamaram/fbsource/xplat/js/scripts/js1/completion.sh
+
+# added by setup_fb4a.sh
+export ANDROID_SDK=/opt/android_sdk
+export ANDROID_NDK_REPOSITORY=/opt/android_ndk
+export ANDROID_HOME=${ANDROID_SDK}
+export PATH=${PATH}:${ANDROID_SDK}/emulator:${ANDROID_SDK}/tools:${ANDROID_SDK}/tools/bin:${ANDROID_SDK}/platform-tools
