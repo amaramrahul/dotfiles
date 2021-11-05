@@ -12,7 +12,7 @@ while true; do
     osascript -e "display notification \"Lockdown in 5 minutes\" with title \"***** LOCKDOWN REMINDER *****\""
     sleep 300
     lock
-  elif test $(date +%H) -ge 23 || test $(date +%H) -lt 5; then
+  elif (test $(date +%H) -ge 22 && test $(date +%M) -ge 30) || test $(date +%H) -lt 5; then
     isSessionLocked=$(python -c 'import sys,Quartz; d=Quartz.CGSessionCopyCurrentDictionary(); print d' | grep "CGSSessionScreenIsLocked = 1" > /dev/null && echo true || echo false)
     if ! $isSessionLocked; then
       if reason=$(osascript -e "tell application \"System Events\"" -e "activate" -e "choose from list {\"Deep Work (hard-stop at midnight)\", \"Working on an outage\", \"Need to give updates which others are waiting for today\", \"Collaboration with US teams, which if not done, would block progress of critical deliverables\", \"Need to start a background job which would take more than 1 hour\", \"Got a hard-deadline today or tomorrow\", \"Add new exception\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"} with prompt \"Why have you unlocked?\"" -e "end tell"); then
