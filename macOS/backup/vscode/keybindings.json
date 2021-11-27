@@ -267,5 +267,24 @@
         "key": "alt+cmd+k",
         "command": "-bookmarks.toggle",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.openRecent",
+        "when": "!editorTextFocus || !vim.active || !vim.use<C-e> || inDebugRepl"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.quickOpenNavigateNext",
+        "when": "inQuickOpen && (inDebugRepl || !editorTextFocus || !vim.active || !vim.use<C-e>)"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpenNavigateNext",
+        "when": "inQuickOpen"
     }
 ]
