@@ -389,18 +389,10 @@ autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Javascript
-if !exists("env")
-  autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
-elseif env == "work"
-  autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
-endif
+autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " XML
-if !exists("env")
-  autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
-elseif env == "work"
-  autocmd FileType xml setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
-endif
+autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
 
 " Markdown
 if filereadable("/usr/local/bin/redcarpet")
@@ -421,11 +413,7 @@ autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2
 "autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Java
-if !exists("env")
-  autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
-elseif env == "work"
-  autocmd FileType java setlocal shiftwidth=4 tabstop=4 autoindent wrap colorcolumn=121
-endif
+autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
 
 " autocmd is not supported in IntelliJ. Hence inferring filetype using
 " file extension.
@@ -444,3 +432,5 @@ if expand('%:e') == "java"
   nnoremap <leader>rsc :s/\[/{/g<cr>:s/{\]/[]/g<cr>:s/\]/}/g<cr>:s/\[}/[]/g<cr>:noh<cr>
   xnoremap <leader>rsc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>:noh<cr>
 endif
+
+source ~/.vimrc-local
