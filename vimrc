@@ -433,4 +433,6 @@ if expand('%:e') == "java"
   xnoremap <leader>rsc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>:noh<cr>
 endif
 
-source ~/.vimrc-local
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
