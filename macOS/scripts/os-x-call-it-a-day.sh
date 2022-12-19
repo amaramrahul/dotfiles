@@ -15,24 +15,26 @@ while true; do
   elif (test $(date +%H) -ge 22 && test $(date +%M) -ge 15) || test $(date +%H) -lt 5; then
     isSessionLocked=$(python -c 'import sys,Quartz; d=Quartz.CGSessionCopyCurrentDictionary(); print d' | grep "CGSSessionScreenIsLocked = 1" > /dev/null && echo true || echo false)
     if ! $isSessionLocked; then
-      if reason=$(osascript -e "tell application \"System Events\"" -e "activate" -e "choose from list {\"Working on an outage\", \"Need to give updates which others are waiting for today\", \"Collaboration with US teams, which if not done, would block progress of critical deliverables\", \"Need to start a background job which would take more than 1 hour\", \"Got a hard-deadline today or tomorrow\", \"Add new exception\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"} with prompt \"Why have you unlocked?\"" -e "end tell"); then
-        if echo $reason | grep "false" >/dev/null; then
-          lock
-        elif output=$(osascript -e "tell application \"System Events\"" -e "activate" -e "display dialog \"How long to finish the job?\" buttons {\"15 mins\", \"30 mins\", \"1 hr\"} giving up after 10" -e "end tell" 2>/dev/null); then
-          if echo $output | grep "15 mins" >/dev/null; then
-            sleep 900
-          elif echo $output | grep "30 mins" >/dev/null; then
-            sleep 1800
-          elif echo $output | grep "1 hr" >/dev/null; then
-            sleep 3600
+      if reason=$(osascript -e "tell application \"System Events\"" -e "activate" -e "choose from list {\"Outage\", \"Hard deadline\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"} with prompt \"Why have you unlocked?\"" -e "end tell"); then
+        if ! echo $reason | grep "false" >/dev/null; then
+          if confirm=$(osascript -e "tell application \"System Events\"" -e "activate" -e "display dialog \"Confirm reason\" default answer \"\" buttons {\"Cancel\", \"Confirm\"} default button \"Confirm\" giving up after 60" -e "end tell" 2>/dev/null); then
+            echo $confirm
+            if echo "$confirm" | grep -i "I confirm that I have unlocked for $reason" >/dev/null; then
+              if output=$(osascript -e "tell application \"System Events\"" -e "activate" -e "display dialog \"How long to finish the job?\" buttons {\"15 mins\", \"30 mins\", \"1 hr\"} giving up after 10" -e "end tell" 2>/dev/null); then
+                echo $output
+                if echo $output | grep "15 mins" >/dev/null; then
+                  sleep 900
+                elif echo $output | grep "30 mins" >/dev/null; then
+                  sleep 1800
+                elif echo $output | grep "1 hr" >/dev/null; then
+                  sleep 3600
+                fi
+              fi
+            fi
           fi
-          lock
-        else
-          lock
         fi
-      else
-        lock
       fi
+      lock
     else
       sleep 1
     fi
