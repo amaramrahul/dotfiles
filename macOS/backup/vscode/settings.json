@@ -25,17 +25,24 @@
     "[cpp]": {
         "editor.defaultFormatter": "nuclide.cpp"
     },
-    "interactive-smartlog.right-drawer-width": 334,
+    "interactive-smartlog.right-drawer-width": 450,
     "interactive-smartlog.bottom-drawer-height": 500,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "fb.ms-remote-connections.odtypes": [
         {
             "type": "ondemand_www",
             "flavor": "default",
-            "folders": []
+            "folders": [
+                "/data/sandcastle/boxes/www/"
+            ]
         },
         {
             "type": "ondemand_mobile",
+            "flavor": "default",
+            "folders": []
+        },
+        {
+            "type": "ondemand_dataswarm",
             "flavor": "default",
             "folders": []
         }

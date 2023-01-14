@@ -228,7 +228,8 @@
     },
     {
         "key": "ctrl+c",
-        "command": "editor.action.clipboardCopyAction"
+        "command": "editor.action.clipboardCopyAction",
+        "when": "!editorTextFocus"
     },
     {
         "key": "cmd+c",
@@ -244,7 +245,8 @@
     },
     {
         "key": "ctrl+v",
-        "command": "editor.action.clipboardPasteAction"
+        "command": "editor.action.clipboardPasteAction",
+        "when": "!editorTextFocus"
     },
     {
         "key": "cmd+v",
@@ -286,5 +288,35 @@
         "key": "ctrl+e",
         "command": "-workbench.action.quickOpenNavigateNext",
         "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "editor.action.clipboardCopyAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-editor.action.clipboardCopyAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "editor.action.clipboardPasteAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-editor.action.clipboardPasteAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+x",
+        "command": "editor.action.clipboardCutAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+x",
+        "command": "-editor.action.clipboardCutAction",
+        "when": "editorTextFocus && !editorReadonly"
     }
 ]
