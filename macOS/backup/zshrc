@@ -1,8 +1,23 @@
-setopt histignorespace
-
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+alias git-tree='git log --graph --oneline'
+
+# See https://www.cyberciti.biz/faq/apple-mac-osx-terminal-color-ls-output-option/
+# and https://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# set editor to vim
+export EDITOR='vim'
+
+# history settings 
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+export HISTFILE=~/.zsh_history
+setopt histignorespace
+setopt EXTENDED_HISTORY
 
 # added by setup_fb4a.sh
 export ANDROID_SDK=/opt/android_sdk

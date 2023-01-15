@@ -2,7 +2,7 @@
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias git-tree='git log --graph --oneline'
+
 alias ssh='autossh -M 0'
 
 # set editor to vim
@@ -10,6 +10,9 @@ export EDITOR='vim'
 
 # set PATH
 export PATH=/usr/local/bin:$PATH
+
+# ls color
+export CLICOLOR=1
 
 # History
 #HISTSIZE=1000000

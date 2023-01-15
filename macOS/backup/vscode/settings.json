@@ -1,5 +1,6 @@
 {
     "editor.suggestSelection": "first",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
     "interactive-smartlog.pull": "arc pull",
     "interactive-smartlog.fetch": "jf get",
     "workbench.colorTheme": "Quiet Light",
@@ -47,4 +48,5 @@
             "folders": []
         }
     ],
+    "workbench.startupEditor": "none"
 }

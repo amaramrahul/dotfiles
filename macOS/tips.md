@@ -22,6 +22,9 @@ Apps
 * [Browser Fairy 2](https://apps.apple.com/us/app/browser-fairy/id1499080593): Decide which browser to open links in based on rules.
 * [QR Jounral](https://apps.apple.com/us/app/qr-journal/id483820530)
 * [Moom](https://manytricks.com): Window Snapping + Preserve Window layout (software providing similar features: Rectangle, BetterSnapTool, Stay, Display Maid)
+* [trash](https://github.com/morgant/tools-osx): See https://apple.stackexchange.com/questions/50844/how-to-move-files-to-trash-from-command-line. Only trash command in tools-osx can be installed (see README.md)
+* [autossh](https://www.harding.motd.ca/autossh/): autossh is a program to start a copy of ssh and monitor it, restarting it as necessary should it die or stop passing traffic. Compiling source and installing works.
+* [htop](https://htop.dev/): a cross-platform interactive process viewer. Compiling source and installing works.
 
 Tips
 * Any web app can be run as desktop app using Google Chrome through More tools -> Create Shortcut... -> Open in new window. For PWA apps (such as https://notepad.js.org/, https://music.youtube.com/), the preferred way is to install it using the "Install <App>..." option. Other software which provide similar options are flotato (buggy), webcatalog (free version limited to 2 apps), unite (yet to try), fluid, nativefier.
@@ -39,15 +42,17 @@ Tips
 System Preferences Optimizations
 --------------------------------
 
-General
-	Close windows when quitting an app: Checked
+Desktop & Dock
+  Close windows when quitting an app: Checked
 
 Keyboard
-	Keyboard
-		Use all F1, F2, etc. keys as standard function keys: Checked
+  Keyboard Shortcuts
+    Function Keys
+      Use F1, F2, etc. keys as standard function keys: Checked
 
-Mouse
-	Scroll direction: Unchecked
+Trackpad
+  Scroll & Zoom
+    Natural Scrolling: Unchecked
 
 
 Karabiner Configuration
@@ -55,18 +60,19 @@ Karabiner Configuration
 
 Copy dotfiles/macos/backup/karabiner.json to ~/.config/karabiner/karabiner.json
 
-Additional mappings for iTerm2 with above configuration (set in Preferences -> Keys -> Key Bindings):
-Ctrl+Shift+C -> Copy
-Ctrl+Shift+V -> Paste
-Ctrl+Shift+T -> New tab
-Ctrl+Page_down -> Next Tab
-Ctrl+Page_up -> Previous Tab
-Fn+left_arrow (this will get interpreted as Command+left_arrow) -> Send Hex Code "0x01"
-Fn+right_arrow (this will get interpreted as Command+right_arrow) -> Send Hex Code "0x05"
-Ctrl+left_arrow (this will get interpreted as Alt+left_arrow) -> Send Escape Sequence "b"
-Ctrl+right_arrow (this will get interpreted as Alt+right_arrow) -> Send Escape Sequence "f"
-
-You will also have to delete the shortcuts for Option+left_arrow and Option+right_arrow in Preferences -> Profiles -> Keys to avoid conflicts.
+Addtional settings in iTerm with above configuration
+* Update Mappings (set in Settings... -> Keys -> Key Bindings):
+    * Ctrl+Shift+C -> Copy
+    * Ctrl+Shift+V -> Paste
+    * Ctrl+Shift+T -> New tab
+    * Ctrl+Page_down -> Next Tab
+    * Ctrl+Page_up -> Previous Tab
+    * Fn+left_arrow (this will get interpreted as Command+left_arrow) -> Send Hex Code "0x01"
+    * Fn+right_arrow (this will get interpreted as Command+right_arrow) -> Send Hex Code "0x05"
+    * Ctrl+left_arrow (this will get interpreted as Alt+left_arrow) -> Send Escape Sequence "b"
+    * Ctrl+right_arrow (this will get interpreted as Alt+right_arrow) -> Send Escape Sequence "f"
+* You will also have to delete the shortcuts for Option+left_arrow and Option+right_arrow in Preferences -> Profiles -> Keys to avoid conflicts.
+* As an additional tip, go to Settings... -> Keys -> Navigation Shortcuts and set Shortcut to select a tab to "Option + Number" (with this you can use Alt+1,Alt+2,etc. to jump to tabs)
 
 Notes:
 1. If upgrading MacOS, ensure that karabiner is supported in the latest version.
@@ -83,9 +89,9 @@ Lock Screen		: Ctrl + Command + Q
 F11			: Show Desktop
 Alt + Space (modified)	: Show Spotlight
 
-Go to System Preferences -> Keyboard -> Shortcuts
+Go to System Preferences -> Keyboard -> Keyboard Shortcuts...
 1. Disable all conflicting shortcuts (these are mostly those where command and ctrl are used)
-2. Custom App Shortcuts can be set for menu actions (for ex. you can set MacVim cut, copy, paste overrides)
+2. Custom App Shortcuts can be set for menu actions (for ex. you can set MacVim and Terminal copy, paste overrides)
 
 
 VSCode
@@ -95,11 +101,15 @@ Use the https://marketplace.visualstudio.com/items?itemName=zpeterg.intellij-ide
 1. Use IntelliJ shortcuts
 2. Switch Cmd with Ctrl so that the IntelliJ shortcuts are those of Windows/Linux
 
-Additionally, retore settings.json and keybindings.json from backup.
+Next, restore keybindings.json from backup.
+
+You could also install  https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings extension and select Default -> Mac-to-Linux keymap. This will generate config that needs to be copied to keybindings.json. The downside of this is that if you make any additional changes in keybindings.json, it would be harder to track them.
 
 Some other useful extensions:
 * Vim
 * Bookmarks
+
+Restore setings.json from backup once the extensions are installed.
 
 
 Secure Shell
@@ -127,7 +137,10 @@ Hourly Borg based backup of home directory to /backup/ or another cloud service
 
 iTerm
 ------
+
 iTerm supports automatic profile switching which is useful to differentiate connection to production systems. See https://iterm2.com/documentation-automatic-profile-switching.html
+
+If preferred, you can make iTerm2 the default terminal via iTerm2 Menu -> Make iTerm2 Default Term
 
 
 VMWare Configuration
