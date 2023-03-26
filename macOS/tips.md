@@ -106,11 +106,16 @@ Next, restore keybindings.json from backup.
 You could also install  https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings extension and select Default -> Mac-to-Linux keymap. This will generate config that needs to be copied to keybindings.json. The downside of this is that if you make any additional changes in keybindings.json, it would be harder to track them.
 
 Some other useful extensions:
-* Vim
+* VSCodeVim
 * Bookmarks
 
 Restore setings.json from backup once the extensions are installed.
 
+For VSCodeVim, To enable key-repeating, execute the following in your Terminal, log out and back in, and then restart VS Code:
+```
+$ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+$ defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
+```
 
 Secure Shell
 ------------
