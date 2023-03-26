@@ -8,11 +8,11 @@ function lock {
 }
 
 while true; do
-  if test $(date +%H) -eq 22 && test $(date +%M) -eq 00; then
+  if test $(date +%H) -eq 21 && test $(date +%M) -eq 45; then
     #osascript -e "display notification \"Lockdown in 15 minutes\" with title \"***** LOCKDOWN REMINDER *****\""
     sleep 900
     lock
-  elif (test $(date +%H) -ge 22 && test $(date +%M) -ge 15) || test $(date +%H) -lt 5; then
+  elif (test $(date +%H) -ge 22 && test $(date +%M) -ge 00) || test $(date +%H) -lt 5; then
     isSessionLocked=$(python -c 'import sys,Quartz; d=Quartz.CGSessionCopyCurrentDictionary(); print d' | grep "CGSSessionScreenIsLocked = 1" > /dev/null && echo true || echo false)
     if ! $isSessionLocked; then
       if reason=$(osascript -e "tell application \"System Events\"" -e "activate" -e "choose from list {\"Outage\", \"Hard deadline\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"} with prompt \"Why have you unlocked?\"" -e "end tell"); then
