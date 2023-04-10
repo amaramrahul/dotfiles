@@ -51,7 +51,7 @@ endif
 Plugin 'honza/vim-snippets'
 Plugin 'tomlion/vim-solidity'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plugin 'preservim/vim-markdown'
 
 " c/c++ plugins
 "Plugin 'craigemery/vim-autotag'
