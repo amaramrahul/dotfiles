@@ -19,7 +19,7 @@ while true; do
         if ! echo $reason | grep "false" >/dev/null; then
           if confirm=$(osascript -e "tell application \"System Events\"" -e "activate" -e "display dialog \"Confirm reason\" default answer \"\" buttons {\"Cancel\", \"Confirm\"} default button \"Confirm\" giving up after 60" -e "end tell" 2>/dev/null); then
             echo $confirm
-            if echo "$confirm" | grep -i "I confirm that I have unlocked for $reason" >/dev/null; then
+            if echo "$confirm" | grep -Ei "confirm.*unlocked.*$reason" >/dev/null; then
               if output=$(osascript -e "tell application \"System Events\"" -e "activate" -e "display dialog \"How long to finish the job?\" buttons {\"15 mins\", \"30 mins\", \"1 hr\"} giving up after 10" -e "end tell" 2>/dev/null); then
                 echo $output
                 if echo $output | grep "15 mins" >/dev/null; then
