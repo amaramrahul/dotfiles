@@ -19,10 +19,6 @@
         "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
     },
     {
-        "key": "shift+alt+f",
-        "command": "omni-search:quick-search"
-    },
-    {
         "key": "cmd+y",
         "command": "-omni-search:quick-search"
     },
@@ -318,5 +314,35 @@
         "key": "ctrl+x",
         "command": "-editor.action.clipboardCutAction",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "shift+cmd+f",
+        "command": "-workbench.action.findInFiles"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "ctrl+shift+alt+f",
+        "command": "omni-search-ui:quick-search"
+    },
+    {
+        "key": "cmd+y",
+        "command": "-omni-search-ui:quick-search"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.showAllSymbols"
     }
 ]

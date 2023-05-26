@@ -26,7 +26,7 @@
     "[cpp]": {
         "editor.defaultFormatter": "nuclide.cpp"
     },
-    "interactive-smartlog.right-drawer-width": 450,
+    "interactive-smartlog.right-drawer-width": 403,
     "interactive-smartlog.bottom-drawer-height": 500,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "fb.ms-remote-connections.odtypes": [
@@ -48,5 +48,20 @@
             "folders": []
         }
     ],
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 1,
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "/bin/zsh",
+        },
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "workbench.editor.closeEmptyGroups": false,
+    "editor.tabCompletion": "on",
+    "terminal.integrated.systemd.shouldUse": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.easymotion": true,
+    "vim.hlsearch": true,
+    "vim.ignorecase": false,
+    "editor.inlineSuggest.allowSuggestOnTriggerCharacters": true
 }
