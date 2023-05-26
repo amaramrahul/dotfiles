@@ -52,6 +52,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'tomlion/vim-solidity'
 Plugin 'godlygeek/tabular'
 Plugin 'preservim/vim-markdown'
+Plugin 'bkad/CamelCaseMotion'
 
 " c/c++ plugins
 "Plugin 'craigemery/vim-autotag'
@@ -198,6 +199,9 @@ let g:vim_markdown_toc_autofit = 1
 " pmd
 "let g:Pmd_Cmd = "/opt/pmd/bin/run.sh"
 "let g:Pmd_Rulesets = "./prj/style/pmd/vizury_java_ruleset.xml -version 1.7 -language java"
+
+" CamelCaseMootion
+let g:camelcasemotion_key = '<leader>'
 
 
 "========== General configuration ==========
