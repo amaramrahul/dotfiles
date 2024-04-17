@@ -3,7 +3,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 alias git-tree='git log --graph --oneline'
-alias scratchpad=
 
 # See https://www.cyberciti.biz/faq/apple-mac-osx-terminal-color-ls-output-option/
 # and https://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output
