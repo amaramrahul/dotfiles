@@ -25,6 +25,7 @@ Apps
 * [trash](https://github.com/morgant/tools-osx): See https://apple.stackexchange.com/questions/50844/how-to-move-files-to-trash-from-command-line. Only trash command in tools-osx can be installed (see README.md)
 * [autossh](https://www.harding.motd.ca/autossh/): autossh is a program to start a copy of ssh and monitor it, restarting it as necessary should it die or stop passing traffic. Compiling source and installing works.
 * [htop](https://htop.dev/): a cross-platform interactive process viewer. Compiling source and installing works.
+* [KeyPad](https://apps.apple.com/us/app/keypad-bluetooth-keyboard/id1491684442): Use your Mac as a bluetooth keyboard, mouse and media remote.
 
 Tips
 * Any web app can be run as desktop app using Google Chrome through More tools -> Create Shortcut... -> Open in new window. For PWA apps (such as https://notepad.js.org/, https://music.youtube.com/), the preferred way is to install it using the "Install <App>..." option. Other software which provide similar options are flotato (buggy), webcatalog (free version limited to 2 apps), unite (yet to try), fluid, nativefier.
