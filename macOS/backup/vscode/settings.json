@@ -7,23 +7,37 @@
     "vim.visualstar": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["u"],
-            "commands": ["undo"]
+            "before": [
+                "u"
+            ],
+            "commands": [
+                "undo"
+            ]
         },
         {
-            "before": ["<C-r>"],
-            "commands": ["redo"]
+            "before": [
+                "<C-r>"
+            ],
+            "commands": [
+                "redo"
+            ]
         },
         {
-            "before": ["g", "x"],
-            "commands": ["editor.action.openLink"]
+            "before": [
+                "g",
+                "x"
+            ],
+            "commands": [
+                "editor.action.openLink"
+            ]
         }
     ],
     "fb.doctor.kerberos-keychain": true,
     "hg.jumpToNextConflictOnSave": "Jump On Save And Open ISL When Done",
     "interactive-smartlog.autoRunMergeDrivers": true,
     "[cpp]": {
-        "editor.defaultFormatter": "nuclide.cpp"
+        "editor.defaultFormatter": "nuclide.cpp",
+        "files.trimTrailingWhitespace": false
     },
     "interactive-smartlog.right-drawer-width": 516,
     "interactive-smartlog.bottom-drawer-height": 500,
@@ -67,5 +81,25 @@
     "meta.global.history.enabled": true,
     "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup",
     "interactive-smartlog.prefer-new-isl": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "remora.focusOnStartup": false,
+    "[python]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.defaultFormatter": "nuclide.pyls"
+    },
+    "[java]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.defaultFormatter": "nuclide.java"
+    },
+    "[kotlin]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.defaultFormatter": "nuclide.java"
+    },
+    "arcinfer.runOnSave": true,
+    "window.zoomLevel": -1,
+    "[rust]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.defaultFormatter": "facebook.rust-analyzer"
+    },
+    "extensions.experimental.deferredStartupFinishedActivation": true
 }
