@@ -37,23 +37,31 @@ Plugin 'tpope/vim-surround'
 Plugin 'sjl/gundo.vim'
 Plugin 'powerline/powerline'
 Plugin 'Conque-Shell'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-fugitive'
 Plugin 'deb.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'python-mode/python-mode'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'TaskList.vim'
-Plugin 'preservim/tagbar'
 if has('python3')
   Plugin 'SirVer/ultisnips'
 endif
 Plugin 'honza/vim-snippets'
-Plugin 'tomlion/vim-solidity'
 Plugin 'godlygeek/tabular'
 Plugin 'preservim/vim-markdown'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+
+" general programming related plugins
+Plugin 'preservim/tagbar'
+Plugin 'ervandew/supertab'
+
+" python plugins
+Plugin 'davidhalter/jedi-vim'
+Plugin 'python-mode/python-mode'
+
+" php plugins
+Plugin 'StanAngeloff/php.vim'
+
+" solidity plugins
+Plugin 'tomlion/vim-solidity'
 
 " c/c++ plugins
 "Plugin 'craigemery/vim-autotag'
@@ -92,6 +100,7 @@ let g:ctrlp_max_depth = 100
 set wildignore+=*.pyc
 
 " easymotion
+" By default, this is set to '<Leader><Leader>'
 "let g:EasyMotion_leader_key = '<Leader>'
 
 " NERDTree plugin
