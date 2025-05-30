@@ -11,7 +11,7 @@ $ git clone https://github.com/amaramrahul/dotfiles.git
 Setup vim (with plugin dependencies)
 ------------------------------------
 ```
-$ sudo apt-get install exuberant-ctags # dependency for tagbar plugin
+$ sudo apt install universal-ctags # dependency for tagbar plugin
 
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 $ ln -s dotfiles/vimrc ~/.vimrc
