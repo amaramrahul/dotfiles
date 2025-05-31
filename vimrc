@@ -222,8 +222,8 @@ let g:camelcasemotion_key = '<leader>'
 set nobackup
 set hidden
 set hlsearch
+set mouse=a
 "set number
-"set mouse=a
 "colorscheme terminal
 "set nuw=4
 "set smartcase
@@ -289,15 +289,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Bash-like autocomplete
 set wildmode=longest,list
-
-
-"========== Gvim ==========
-
-" Remove menu bar
-"set guioptions-=m
-
-" Remove toolbar
-set guioptions-=T
 
 
 "========== External Command ==========
@@ -441,6 +432,16 @@ if expand('%:e') == "java"
   nnoremap <leader>rsc :s/\[/{/g<cr>:s/{\]/[]/g<cr>:s/\]/}/g<cr>:s/\[}/[]/g<cr>:noh<cr>
   xnoremap <leader>rsc :s/\%V\[/{/g<cr>:'<,'>s/\%V\]/}/g<cr>:noh<cr>
 endif
+
+" See https://www.reddit.com/r/vim/comments/1cbk0yx/windows_vim_app_any_way_to_enable_ctrlshiftcv_for/
+" ctrl-shift-x is cut
+vnoremap <C-S-X> "+x
+" ctrl-shift-c is copy
+vnoremap <C-S-C> "+y
+" ctrl-shift-v is paste
+map <C-S-V> "+gP
+imap <C-S-V>  <C-R>+
+cmap <C-S-V>  <C-R>+
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
