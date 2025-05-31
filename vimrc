@@ -321,12 +321,6 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 
 "========== Buffers, Windows & Tabs ==========
 
-" Easier window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Tips from http://vim.wikia.com/wiki/Easier_buffer_switching 
 function! BufSel(pattern)
   let bufcount = bufnr("$")
