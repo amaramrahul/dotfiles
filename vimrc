@@ -51,7 +51,10 @@ Plugin 'tpope/vim-fugitive'
 
 " general programming related plugins
 Plugin 'preservim/tagbar'
-Plugin 'ervandew/supertab'
+" Disabling supertab as it was causing issues with inserting of literal tab
+" Need to see how to configure it so that this can be used without removing
+" the ability to insert literal tab when tab is pressed
+"Plugin 'ervandew/supertab'
 
 " python plugins
 Plugin 'davidhalter/jedi-vim'
@@ -423,9 +426,6 @@ autocmd BufRead,BufNewFile *.txt set spell paste
 
 " Vagrantfile
 autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2 autoindent
-
-" Fix for 'crontab -e' not working in OS X
-"autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Java
 autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81

@@ -1,5 +1,8 @@
 source ~/dotfiles/vimrc
 
+" Fix for 'crontab -e' not working in OS X
+"autocmd filetype crontab setlocal nobackup nowritebackup
+
 " See https://github.com/vim/vim/issues/4738#issuecomment-798790444
 " Remove once this https://github.com/macvim-dev/macvim/issues/925 is closed
 function! OpenURLUnderCursor()
