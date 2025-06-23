@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd /var/cache/apt/archives || {
+  echo Failed to change to /var/cache/apt/archives >&2
+  exit 1
+}
+
+apt-get update
+
+# first filter out all but the URIs with the grep
+# next grab just the first arg in uri and second arg in name
+apt-get --print-uris --yes --force-yes dist-upgrade | grep "^'" | while read uri name x;
+  do
+    # trim the leading and trailing quotes from the URI
+    uri=`echo $uri | sed -e "s/^'//; s/'$//"`
+    #echo $uri
+    wget -c -t 0 --limit-rate=150k "$uri" -O "$name"
+  done
