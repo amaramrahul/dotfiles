@@ -9,6 +9,7 @@ Apps
 * [edit-anywhere](https://github.com/tjluoma/edit-anywhere): anywhere you could edit text, it would send that text to your favorite text editor and then when you closed that file, it would send the text back to the original application.
 * [GitUp](https://github.com/git-up/GitUp): Frontend to git
 * [Battery Monitor](https://apps.apple.com/us/app/battery-monitor-health-info/id836505650): Low battery alert
+* [coconutBattery](https://www.coconut-flavour.com/coconutbattery/): Useful for determing the battery health
 * [Notefile](http://junecloud.com/software/dashboard/notefile.html): Dashboard widget for resizable sticky note
 * [Apptivate](http://www.apptivateapp.com/): for assigning global shortcuts to apps (this can be probably be done using karabiner or automator as described in https://apple.stackexchange.com/questions/20010/can-i-create-a-shortcut-to-open-a-specific-application-on-os-x but apptivate feels a whole lot more convenient)
 * [XQUartz](https://www.xquartz.org/): X server. Also, the proper path to xauth has to be set for this to work (https://discussions.apple.com/thread/8621501)
