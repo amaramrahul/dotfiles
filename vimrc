@@ -439,7 +439,9 @@ vnoremap <C-S-X> "+x
 " ctrl-shift-c is copy
 vnoremap <C-S-C> "+y
 " ctrl-shift-v is paste
-map <C-S-V> "+gP
+" Below mapping was conflicting with visual block mode shortcut (Ctrl+V).
+" Need to investigate further the reason for this conflict.
+"map <C-S-V> "+gP
 imap <C-S-V>  <C-R>+
 cmap <C-S-V>  <C-R>+
 
