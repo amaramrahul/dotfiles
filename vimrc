@@ -412,6 +412,9 @@ autocmd BufRead,BufNewFile *.txt set spell paste
 " Vagrantfile
 autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
 
+" sshconfig
+autocmd FileType sshconfig setlocal shiftwidth=4 expandtab softtabstop=4 autoindent
+
 " Java
 autocmd FileType java setlocal shiftwidth=4 expandtab softtabstop=4 autoindent wrap colorcolumn=81
 
