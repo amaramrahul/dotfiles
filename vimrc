@@ -372,29 +372,29 @@ set completeopt=longest,menuone
 "set splitbelow
 
 " Python
-autocmd FileType python setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=80
+autocmd FileType python setlocal shiftwidth=4 expandtab softtabstop=4 autoindent wrap colorcolumn=80
 "autocmd FileType python TagbarOpen
 " Use more advanced types of auto-completion such as rope / jedi
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " C/C++
-autocmd FileType c setlocal shiftwidth=2 expandtab tabstop=2 autoindent
-autocmd FileType cpp setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+autocmd FileType c setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
+autocmd FileType cpp setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
 
 " PHP
-autocmd FileType php setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=80
+autocmd FileType php setlocal shiftwidth=4 expandtab softtabstop=4 autoindent wrap colorcolumn=80
 
 " Shell
-autocmd FileType sh setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+autocmd FileType sh setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
 
 " HTML
-autocmd FileType html setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+autocmd FileType html setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
 
 " Javascript
-autocmd FileType javascript setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+autocmd FileType javascript setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
 
 " XML
-autocmd FileType xml setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+autocmd FileType xml setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
 
 " Markdown
 if filereadable("/usr/local/bin/redcarpet")
@@ -404,16 +404,16 @@ else
 endif
 autocmd FileType markdown nmap <leader>toc :Toch<cr>:q<cr>:Tocv<cr>
 " Following Google styleguide: https://google.github.io/styleguide/docguide/style.html
-autocmd FileType markdown setlocal shiftwidth=4 expandtab tabstop=4
+autocmd FileType markdown setlocal shiftwidth=4 expandtab softtabstop=4
 
 " Text files
 autocmd BufRead,BufNewFile *.txt set spell paste
 
 " Vagrantfile
-autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab tabstop=2 autoindent
+autocmd BufRead,BufNewFile Vagrantfile setlocal shiftwidth=2 expandtab softtabstop=2 autoindent
 
 " Java
-autocmd FileType java setlocal shiftwidth=4 expandtab tabstop=4 autoindent wrap colorcolumn=81
+autocmd FileType java setlocal shiftwidth=4 expandtab softtabstop=4 autoindent wrap colorcolumn=81
 
 " autocmd is not supported in IntelliJ. Hence inferring filetype using
 " file extension.
