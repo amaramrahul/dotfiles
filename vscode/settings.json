@@ -1,0 +1,40 @@
+{
+  "vim.camelCaseMotion.enable": true,
+  "vim.visualstar": true,
+  "vim.easymotion": true,
+  "vim.foldfix": true,
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
+  "vim.ignorecase": false,
+  "vim.handleKeys": {
+    "<C-k>": false,
+  },
+  "livePreview.notifyOnOpenLooseFile": false,
+  "git.autofetch": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["g", "p", "d"],
+      "commands": ["editor.action.peekDefinition"],
+    },
+    {
+      "before": ["g", "s", "d"],
+      "commands": ["editor.action.revealDefinitionAside"],
+    },
+    {
+      "before": ["g", "q", "f"],
+      "commands": ["editor.action.quickFix"],
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"],
+    },
+  ],
+  "files.exclude": {
+    "**/.*": true,
+  },
+  "workbench.colorTheme": "Light 2026",
+  "window.titleBarStyle": "native",
+  "scratchpads.autoPaste": false,
+}

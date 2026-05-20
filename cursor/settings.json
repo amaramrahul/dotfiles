@@ -1,0 +1,50 @@
+{
+  "workbench.colorTheme": "Default Light Modern",
+  "redhat.telemetry.enabled": false,
+  "vim.camelCaseMotion.enable": true,
+  "vim.visualstar": true,
+  "vim.easymotion": true,
+  "vim.foldfix": true,
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
+  "vim.ignorecase": false,
+  "vim.handleKeys": {
+    "<C-k>": false,
+  },
+  "livePreview.notifyOnOpenLooseFile": false,
+  "git.autofetch": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnSave": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["g", "p", "d"],
+      "commands": ["editor.action.peekDefinition"],
+    },
+    {
+      "before": ["g", "s", "d"],
+      "commands": ["editor.action.revealDefinitionAside"],
+    },
+    {
+      "before": ["g", "q", "f"],
+      "commands": ["editor.action.quickFix"],
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"],
+    },
+  ],
+  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"],
+  "scratchpads.defaultFiletype": "md",
+  "scratchpads.showInExplorer": true,
+  "php.validate.executablePath": "/usr/bin/php",
+  "window.titleBarStyle": "native",
+  "window.autoDetectColorScheme": false,
+  "scratchpads.autoPaste": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+  },
+  "Vsnips.SnipsDir": ["/home/rahul/.vim/UltiSnips"],
+  "claudeCode.preferredLocation": "sidebar",
+  "Vsnips.UseDefaultSnips": false,
+}
