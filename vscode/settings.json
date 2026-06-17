@@ -37,4 +37,7 @@
   "workbench.colorTheme": "Light 2026",
   "window.titleBarStyle": "native",
   "scratchpads.autoPaste": false,
+  "python.terminal.activateEnvironment": false,
+  "workbench.startupEditor": "none",
+  "scratchpads.showInExplorer": true
 }
